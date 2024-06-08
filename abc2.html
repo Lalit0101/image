@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .mySlides{
+            display: none;
+        }
+
+        .mySlides img{
+            height: 70vh;
+        }
+        .cursor{
+            cursor: pointer;
+        }
+
+        .prev, .next{
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next{
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover{
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .numbertext{
+            color: white;
+            position: absolute;
+            font-size: 15px;
+            font-weight: bold;
+            top: 0;
+            padding: 10px 12px;
+        }
+
+        .caption-container{
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+         .row::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .column{
+            float: left;
+            width: 16.66%;
+        }
+
+        .demo{
+            opacity: 0.6;
+        } 
+
+        .active, .demo:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="https://images.unsplash.com/photo-1600762516498-761775b86af7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="https://images.unsplash.com/photo-1601452085883-e513ba7f80db?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="https://plus.unsplash.com/premium_photo-1673603988651-99f79e4ae7d3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="https://plus.unsplash.com/premium_photo-1673697240036-b64ea721b98f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+
+
+            <div class="row">
+                <div class="column">
+                    <img src="https://images.unsplash.com/photo-1600762516498-761775b86af7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(1)">
+                </div>
+
+                <div class="column">
+                    <img src="https://images.unsplash.com/photo-1601452085883-e513ba7f80db?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(2)">
+                </div>
+
+                <div class="column">
+                    <img src="https://plus.unsplash.com/premium_photo-1673603988651-99f79e4ae7d3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(3)">
+                </div>
+
+
+                <div class="column">
+                    <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(4)">
+                </div>
+
+                <div class="column">
+                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(5)">
+                </div>
+
+                <div class="column">
+                    <img src="https://plus.unsplash.com/premium_photo-1673697240036-b64ea721b98f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="width: 100%;" class="demo cursor" onclick="currentSlide(6)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n){
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n){
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n){
+
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+
+            let captionText = document.getElementById("caption");
+
+            if(n > slides.length){
+                slideIndex = 1;
+            }
+            if(n < 1){
+                slideIndex = slides.length;
+            }
+
+            for(let i=0; i<slides.length; i++){
+                slides[i].style.display = "none";
+            }
+
+            for(let i=0; i<dots.length; i++){
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex-1].style.display = "block";
+
+            dots[slideIndex-1].className += " active";
+
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+    </script>
+</body>
+</html>
