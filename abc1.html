@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            position: relative;
+            width: 100%;
+        }
+        .slider{
+            display: none;
+        }
+
+        img{
+            width: 100%;
+            height: 90vh;
+        }
+
+        .numtext{
+            position: absolute;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 12px;
+        }
+
+        .text{
+            position: absolute;
+            color: white;
+            bottom: 15px;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+        }
+        .box{
+            text-align: center;
+        }
+        .dots{
+            background-color: #bbb;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            border-radius: 50%;
+            margin: 2px 3px;
+            cursor: pointer;
+        }
+
+        .active, .dots:hover{
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slider">
+            <div class="numtext">1 / 4</div>
+            <img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="text">Caption One</div>
+        </div>
+
+        <div class="slider">
+            <div class="numtext">2 / 4</div>
+            <img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="slider">
+            <div class="numtext">3 / 4</div>
+            <img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="text">Caption Three</div>
+        </div>
+
+        <div class="slider">
+            <div class="numtext">4 / 4</div>
+            <img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <div class="text">Caption Four</div>
+        </div>
+
+        <!-- <div class="prev">&#10094;</div>
+        <div class="next">&#10095;</div> -->
+    </div>
+
+    <div class="box">
+        <span class="dots"></span>
+        <span class="dots"></span>
+        <span class="dots"></span>
+        <span class="dots"></span>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides(){
+            let slides = document.getElementsByClassName("slider");
+
+            let dots = document.getElementsByClassName("dots");
+
+            for(let i=0; i<slides.length; i++){
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+
+            if(slideIndex > slides.length){
+                slideIndex = 1;
+            }
+
+            for(let i=0; i<dots.length; i++){
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+
+            setTimeout(showSlides, 2000);
+        }
+    </script>
+</body>
+</html>
