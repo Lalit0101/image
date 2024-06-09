@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .column{
+            float: left; 
+            padding: 10px;
+            width: 25%;
+        }
+        .column img{
+            opacity: 0.8;
+            width: 100%;
+            cursor: pointer;
+        }
+        .column img:hover{
+            opacity: 1;
+        }
+
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .container{
+            position: relative;
+            /* display: none; */
+        }
+
+        #imgtext{
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .closebtn{
+            position: absolute;
+            top: 6px;
+            right: 15px;
+            font-size: 35px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column">
+            <img src="https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.jpg?s=612x612&w=is&k=20&c=KmQmp64_MeJi4G3l3fxG7yLE_nku1SfvelQN1dX22ik=" alt="Nature" onclick="myFunction(this);">
+        </div>
+
+        <div class="column">
+            <img src="https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.jpg?s=612x612&w=is&k=20&c=KmQmp64_MeJi4G3l3fxG7yLE_nku1SfvelQN1dX22ik=" alt="Snow" onclick="myFunction(this);">
+        </div>
+
+        <div class="column">
+            <img src="https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.jpg?s=612x612&w=is&k=20&c=KmQmp64_MeJi4G3l3fxG7yLE_nku1SfvelQN1dX22ik=" alt="Mountains" onclick="myFunction(this);">
+        </div>
+
+        <div class="column">
+            <img src="https://media.istockphoto.com/id/1341288649/photo/75mpix-panorama-of-beautiful-mount-ama-dablam-in-himalayas-nepal.jpg?s=612x612&w=is&k=20&c=KmQmp64_MeJi4G3l3fxG7yLE_nku1SfvelQN1dX22ik=" alt="Lights" onclick="myFunction(this);">
+        </div>
+    </div>
+
+    <div class="container">
+        <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+
+        <img style="width: 100%;" id="expandedImg">
+
+        <div id="imgtext"></div>
+    </div>
+
+    <script>
+        function myFunction(imgs){
+
+            let expandedImg =document.getElementById("expandedImg");
+
+            let imgtext = document.getElementById("imgtext");
+
+            expandedImg.src = imgs.src;
+
+            imgtext.innerHTML = imgs.alt;
+
+            expandedImg.parentElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>
